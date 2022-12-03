@@ -1,0 +1,7 @@
+<h1><%= @band.name %></h1>
+<% @records.each do |record| %>
+  <h3><%= record.title %></h3>
+  <p>Format: <%= record.format_size %>"</p>
+  <p>Release Year: <%= record.release_year %></p>
+  <p>Color Vinyl: <%= record.color_vinyl %></p>
+<% end %>
