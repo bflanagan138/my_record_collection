@@ -1,4 +1,4 @@
 <h1>Bands</h1>
 <% @bands.each do |band| %>
-  <p><%= band.name %></p>
+  <h3><%= band.name %></h3><p> Was Added @ <%= band.created_at %></p>
   <% end %>
