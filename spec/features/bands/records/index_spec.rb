@@ -1,10 +1,6 @@
 require 'rails_helper'
 #user story 1
-# For each parent table
-# As a visitor
-# When I visit '/parents'
-# Then I see the name of each parent record in the system
-RSpec.describe 'Parent index page' do
+RSpec.describe 'Band index page' do
   before :each do
     @band_1 = Band.create!(name: "Tragedy", year_formed: 2000, active: false)
     @band_2 = Band.create!(name: "Nine Shocks Terror", year_formed: 1996, active: false)
@@ -16,6 +12,5 @@ RSpec.describe 'Parent index page' do
     expect(page).to have_content(@band_1.name)
     expect(page).to have_content(@band_2.name)
     expect(page).to have_content(@band_3.name)
-
   end
 end
