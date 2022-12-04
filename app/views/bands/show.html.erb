@@ -2,3 +2,5 @@
 <p>Formed In: <%= @band.year_formed %></p>
 <p>Is Currently Active: <%= @band.active %></p> 
 <h3>I have <%= @band.records.count %> <%= @band.name %> records in my collection</h3>
+
+<%= link_to "All #{@band.name} Records in my Collection", "/bands/#{@band.id}/records" %>
