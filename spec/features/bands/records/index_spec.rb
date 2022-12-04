@@ -45,4 +45,11 @@ RSpec.describe 'Band index page' do
       expect(@band_2.name).to_not appear_before(@band_3.name)
     end
   end
+  
+  describe 'when I visit any page' do
+    it 'contains a link to the /records page' do
+      visit "/bands"
+      expect(page).to have_link("Records")
+    end
+  end
 end

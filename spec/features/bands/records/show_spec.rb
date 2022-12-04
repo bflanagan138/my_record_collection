@@ -27,6 +27,12 @@ RSpec.describe 'Band show page' do
     
     expect(page).to have_content(@band_1.name)
     expect(page).to have_content('I have 3 Tragedy records in my collection')
-    
+  end
+  describe 'when I visit any page' do
+    it 'contains a link to the /records page' do
+      visit "/bands/#{@band_1.id}"
+
+      expect(page).to have_link("Records")
+    end
   end
 end
