@@ -43,4 +43,38 @@ RSpec.describe "Band Show Page" do
       expect(current_path).to eq("/bands/#{@band_1.id}/records")
     end
   end
-end
+    
+    describe 'when I visit a band page' do
+      it 'shows update band info link' do
+        visit "/bands/#{@band_1.id}"
+
+        expect(page).to have_link("Update #{@band_1.name} Info")
+      end
+    end
+    describe 'when I click on update band link' do
+      it 'takes me to the band update form' do
+    
+        visit "/bands/#{@band_1.id}"
+       
+        click_link("Update #{@band_1.name} Info")
+        expect(current_path).to eq("/bands/#{@band_1.id}/edit")
+        # require 'pry'; binding.pry
+      end
+    end
+    describe 'fill out band update form and submit' do
+      it 'updates band information and returns me to the band show page' do
+        visit "/bands/#{@band_1.id}/edit"
+        expect(page).to have_content("#{@band_1.name}")
+        
+        fill_in('name', with: 'The Tragedies')
+        fill_in('year_formed', with: 1985)
+        # choose('active', :with => 'true')
+        click_button('Update Band Info')
+
+        expect(current_path).to eq ("/bands/#{@band_1.id}")
+        expect(page).to have_content ("The Tragedies")
+        expect(page).to have_content ("1985")
+        expect(page).to_not have_content ("Tragedy")
+      end
+    end
+  end

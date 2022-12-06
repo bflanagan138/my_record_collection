@@ -3,8 +3,8 @@
 <p> Enter Band Name <%= form.text_field :name %></p>
 <p> Enter Year Formed <%= form.number_field :year_formed %></p>
 <p> Band is Currently Active
-<ul><%= form.radio_button :currently_active, value=true %> Check if true</ul> 
-<ul><%= form.radio_button :currently_active, value=false %> Check if false</ul> 
+<ul><%= form.radio_button :active, value=true %> Check if true</ul> 
+<ul><%= form.radio_button :active, value=false %> Check if false</ul> 
 </p>
 <%= form.submit "Add Band" %>  
 <% end %>
