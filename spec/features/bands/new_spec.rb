@@ -12,7 +12,7 @@ RSpec.describe 'Band creation' do
     visit '/bands/new'
     fill_in('name', with: 'From Ashes Rise')
     fill_in('year_formed', with: 1997)
-    choose('currently_active', :with => 'false')
+    choose('active', :with => 'false')
     click_button('Add Band')
 
     expect(current_path).to eq ("/bands")

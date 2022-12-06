@@ -11,11 +11,22 @@ class BandsController < ApplicationController
   end
 
   def create
-    band = Band.create(name: params[:name])
+    band = Band.create(bands_params)
     redirect_to "/bands"
   end
 
+  def edit
+    @band = Band.find(params[:id])
+  end
+
   def update
-    
+    band = Band.find(params[:id])
+    band.update(bands_params)
+    redirect_to "/bands/#{band.id}"
+  end
+
+  private 
+  def bands_params
+    params.permit(:name, :year_formed, :active)
   end
 end

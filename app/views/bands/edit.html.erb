@@ -1,0 +1,12 @@
+<h3>Update <%= "#{@band.name} Info" %></h3>  
+<%= form_with url: "/bands/#{@band.id}", method: :patch, local: true do |form|%>
+  <ul><%= form.label :name, "Update Name" %>
+    <%= form.text_field :name, value: @band.name %></ul>
+  <ul><%= form.label :year_formed, "Update Year Formed" %>
+    <%= form.number_field :year_formed, value: @band.year_formed %></ul>
+  <ul><%= form.label :active, "Active?" %></ul>
+  <ul><%= form.radio_button :active, value: true %>Check if true</ul>
+  <ul><%= form.radio_button :active, value: false %>Check if false</ul>
+
+  <%= form.submit "Update Band Info" %> 
+<% end %>
