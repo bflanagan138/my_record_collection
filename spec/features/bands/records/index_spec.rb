@@ -52,4 +52,31 @@ RSpec.describe 'Band index page' do
       expect(page).to have_link("Records")
     end
   end
+
+
+# When I click the link
+# I am taken to '/parents/:parent_id/child_table_name/new' where I see a form to add a new adoptable child
+# When I fill in the form with the child's attributes:
+# And I click the button "Create Child"
+# Then a `POST` request is sent to '/parents/:parent_id/child_table_name',
+# a new child object/row is created for that parent,
+# and I am redirected to the Parent Childs Index page where I can see the new child listed
+  describe 'when I visit a band record index page' do
+    it 'shows add a record link' do
+      visit "/bands/#{@band_1.id}/records"
+
+      expect(page).to have_link("Add a #{@band_1.name} Record to my Collection")
+    end
+  end
+
+  describe 'when I click on add a record link' do
+    it 'takes me to the add record form' do
+  
+      visit "/bands/#{@band_1.id}/records"
+     
+      click_link("Add a #{@band_1.name} Record to my Collection")
+      expect(current_path).to eq("/bands/#{@band_1.id}/records/new")
+      # require 'pry'; binding.pry
+    end
+  end
 end
