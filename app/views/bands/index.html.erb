@@ -1,4 +1,5 @@
 <h1>Bands</h1>
+<%= link_to "Add New Band", "/bands/new" %>
 <% @bands.each do |band| %>
   <h3><%= band.name %></h3><p> Was Added @ <%= band.created_at %></p>
   <% end %>
