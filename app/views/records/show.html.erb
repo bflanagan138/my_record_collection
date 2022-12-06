@@ -2,3 +2,4 @@
 <p>Format: <%= @record.format_size %>"</p>
 <p>Release Year: <%= @record.release_year %></p>
 <p>Color Vinyl: <%= @record.color_vinyl %></p>
+<%= link_to "Update This Release", "/records/#{@record.id}/edit" %>
