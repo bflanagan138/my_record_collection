@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   get '/records', to: 'records#index'
   get '/records/:id', to: 'records#show'
   get '/bands/:band_id/records', to: 'band_records#index'
+  get '/bands/update', to: 'bands#update'
 end

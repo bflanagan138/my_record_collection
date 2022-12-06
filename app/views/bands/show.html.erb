@@ -4,3 +4,4 @@
 <h3>I have <%= @band.records_count %> <%= @band.name %> records in my collection</h3>
 
 <%= link_to "All #{@band.name} Records in my Collection", "/bands/#{@band.id}/records" %>
+<h3> <%= link_to "Update #{@band.name} Info", "/bands/#[@band_1.id}/update" %> </h3>
