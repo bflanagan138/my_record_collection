@@ -58,7 +58,6 @@ RSpec.describe "Band Show Page" do
        
         click_link("Update #{@band_1.name} Info")
         expect(current_path).to eq("/bands/#{@band_1.id}/edit")
-        # require 'pry'; binding.pry
       end
     end
     describe 'fill out band update form and submit' do

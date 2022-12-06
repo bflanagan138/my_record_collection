@@ -1,0 +1,11 @@
+<h1>Add A New <%= @band.name %> Record </h1>
+<%= form_with url: "/bands/#{@band.id}/records", method: :post, local: true do |form| %>
+  <p> Enter Record Title <%= form.text_field :title %></p>
+  <p> Enter Format Size <%= form.number_field :format_size %></p>
+  <p> Enter Release Year <%= form.number_field :release_year %></p>
+  <p> Colored Vinyl
+  <ul><%= form.radio_button :color_vinyl, value=true %> Check if true</ul> 
+  <ul><%= form.radio_button :color_vinyl, value=false %> Check if false</ul> 
+  </p>
+  <%= form.submit "Add Record" %>  
+  <% end %>
