@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   post '/bands', to: 'bands#create'
   get '/bands/:id', to: 'bands#show'
   get '/bands/:id/records/new', to: 'band_records#new'
+  post 'bands/:id/records', to: 'band_records#create'
   get '/records', to: 'records#index'
   get '/records/:id', to: 'records#show'
   get '/bands/:band_id/records', to: 'band_records#index'
