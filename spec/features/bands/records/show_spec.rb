@@ -13,4 +13,35 @@ RSpec.describe 'Band and records show page' do
     @record_6 = @band_3.records.create!(title: "If Two Worlds Kiss", format_size: 12, release_year: 1987, color_vinyl: true)
     @record_7 = @band_3.records.create!(title: "Meta", format_size: 12, release_year: 1988, color_vinyl: false)
   end
+
+# When I click the button to submit the form "Update Child"
+# Then a `PATCH` request is sent to '/child_table_name/:id',
+# the child's data is updated,
+# and I am redirected to the Child Show page where I see the Child's updated information
+  describe 'visit child show page' do
+    it 'has link to update child' do
+      visit "/records/#{@record_2.id}"
+      expect(page).to have_content("Can We Call This Life?")
+      expect(page).to_not have_content("Mobile Terror Unit")
+      expect(page).to have_link("Update This Release")
+    end
+  end
+ 
+  it 'when I click the Update Release link' do
+    visit "/records/#{@record_2.id}"
+    click_link ("Update This Release")
+    expect(current_path).to eq("/records/#{@record_2.id}/edit")
+  end
+
+  it 'updates record when form is filled out and submitted' do
+    visit "/records/#{@record_2.id}/edit"
+    fill_in('title', with: 'We Cannot Call This Life')
+    fill_in('format_size', with: 12)
+    fill_in('release_year', with: 2019)
+    # choose('color_vinyl', :with => 'false')
+    click_button('Update Record Info')
+
+    expect(current_path).to eq ("/records/#{@record_2.id}")
+    expect(page).to have_content ("We Cannot Call This Life")
+  end
 end

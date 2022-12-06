@@ -1,0 +1,14 @@
+<h3>Update <%= "#{@record.title} Info" %></h3>  
+<%= form_with url: "/records/#{@record.id}", method: :patch, local: true do |form|%>
+  <ul><%= form.label :title, "Update Title" %>
+    <%= form.text_field :title, value: @record.title %></ul>
+  <ul><%= form.label :format_size, "Update Format Size" %>
+    <%= form.number_field :format_size, value: @record.format_size %></ul>
+    <ul><%= form.label :release_year, "Update Release Year" %>
+    <%= form.number_field :release_year, value: @record.release_year %></ul>
+  <ul><%= form.label :color_vinyl, "Color Vinyl?" %></ul>
+  <ul><%= form.radio_button :color_vinyl, value: true %>Check if true</ul>
+  <ul><%= form.radio_button :color_vinyl, value: false %>Check if false</ul>
+
+  <%= form.submit "Update Record Info" %> 
+<% end %>

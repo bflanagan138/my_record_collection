@@ -10,4 +10,7 @@ Rails.application.routes.draw do
   get '/bands/:band_id/records', to: 'band_records#index'
   get '/bands/:id/edit', to: 'bands#edit'
   patch '/bands/:id', to: 'bands#update'
+  get '/records/:id/edit', to:'records#edit'
+  post 'records', to: 'records#create'
+  patch '/records/:id', to: 'records#update'
 end
