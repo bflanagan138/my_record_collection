@@ -14,4 +14,8 @@ class BandsController < ApplicationController
     band = Band.create(name: params[:name])
     redirect_to "/bands"
   end
+
+  def update
+    
+  end
 end

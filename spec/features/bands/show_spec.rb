@@ -44,9 +44,7 @@ RSpec.describe "Band Show Page" do
     end
   end
     
-    # As a visitor
-    # When I visit a parent show page
-    # Then I see a link to update the parent "Update Parent"
+    
     # When I click the link "Update Parent"
     # Then I am taken to '/parents/:id/edit' where I  see a form to edit the parent's attributes:
     # When I fill out the form with updated information
@@ -59,6 +57,13 @@ RSpec.describe "Band Show Page" do
         visit "/bands/#{@band_1.id}"
 
         expect(page).to have_link("Update #{@band_1.name} Info")
+      end
+    end
+    describe 'when I click on update band link' do
+      it 'takes me to the band update form' do
+        visit "/bands/#{@band_1.id}"
+        click_link("Update #{@band_1.name} Info")
+        expect(current_path).to eq("/bands/#{@band_1.id}/update")
       end
     end
   end
