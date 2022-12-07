@@ -15,12 +15,11 @@ RSpec.describe 'Record index page' do
   end
   describe "When I visit /records "
     it 'shows the name of each record and their attributes' do
-      visit "/records"
-      
-      expect(page).to have_content(@record_1.title)
-      expect(page).to have_content(@record_2.format_size)
-      expect(page).to have_content(@record_4.color_vinyl)
-      expect(page).to have_content(@record_7.release_year)
-    end
+    visit "/records"
+    
+    expect(page).to have_content(@record_1.title)
+    expect(page).to have_content(@record_2.format_size)
+    expect(page).to have_content(@record_4.color_vinyl)
+    expect(page).to have_content(@record_7.release_year)
   end
 end
