@@ -52,4 +52,6 @@ RSpec.describe 'Band index page' do
       expect(page).to have_link("Records")
     end
   end
+
+  
 end

@@ -14,12 +14,13 @@ RSpec.describe 'Record index page' do
     @record_7 = @band_3.records.create!(title: "Meta", format_size: 12, release_year: 1988, color_vinyl: false)
   end
   describe "When I visit /records "
-  it 'shows the name of each record and their attributes' do
-    visit "/records"
-    
-    expect(page).to have_content(@record_1.title)
-    expect(page).to have_content(@record_2.format_size)
-    expect(page).to have_content(@record_4.color_vinyl)
-    expect(page).to have_content(@record_7.release_year)
+    it 'shows the name of each record and their attributes' do
+      visit "/records"
+      
+      expect(page).to have_content(@record_1.title)
+      expect(page).to have_content(@record_2.format_size)
+      expect(page).to have_content(@record_4.color_vinyl)
+      expect(page).to have_content(@record_7.release_year)
+    end
   end
 end
